@@ -1,0 +1,98 @@
+.nav__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    z-index: 5;
+  }
+
+.logo{
+	position:fixed; 
+    height: 45px;
+	top: 10px; 
+	left: 10px; 
+  }
+.nav__list-item{
+    display: inline-block;
+    padding: 24px 14px;
+    font-family: "proxima nova light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+    color: white;
+}
+
+.jd {
+    float: right;
+    padding-left: 15px;
+    padding-bottom: 5px;
+    width: 60%;
+}
+
+a:link {
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+  }
+
+a:visited {
+    text-decoration: none;
+    color: white;
+  }
+
+a:hover {
+    text-decoration: none;
+    color: pink;
+  }
+
+.container{
+    padding:20px;
+    margin-top:50px;
+    /* background-color:rgb(179, 179, 179); */
+    width: 70%;
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 20px;
+}
+
+.title{
+    text-align: center;
+    font-family: "proxima nova light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+img {
+    max-width: 60%;
+    height: auto;
+  }
+
+p {
+    font-family: "proxima nova light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+h2{
+    font-size: larger;
+    color: rgb(77, 76, 76);
+    font-family: "proxima nova light", "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+figcaption {
+    color: grey;
+    font-style: italic;
+}
+
+.footer{
+    background-color: black;
+    color: white;
+    height: 50px;
+    overflow: hidden;
+    text-align: center;
+    justify-content: space-evenly;
+    background-color: black;
+    position: relative;
+    left: 0;
+    width: 100%;
+}
