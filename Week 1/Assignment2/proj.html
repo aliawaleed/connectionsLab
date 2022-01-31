@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoH</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favi.png">
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul class="nav__list">
+            <img class="logo" src="favi.png" alt="image">
+            <li class="nav__list-item"> <a href="#home">Home</a></li>
+            <li class="nav__list-item"> <a href="#about">About</a></li>
+            <li class="nav__list-item"> <a href="#portfolio">Portfolio</a></li>
+            <li class="nav__list-item"> <a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <center><div class="container">
+        <div class="title"><h1>Phygical Expression</h1></div>
+        
+        <div class="concept">
+        <h2>The Concept</h2>
+        <p class="jdText"><figure>
+            <img class="jd" data-aos="fade-up" src="jd.jpeg" alt="image" data-aos-duration="1000" >
+            <figcaption class="jd">This is an image for reference of an older version of Just Dance where the players are supposed to make the same dance moves like the ones displayed in front of them on the screen.</figcaption>
+        </figure>The idea behind our final project is inspired by the game ‘Just Dance’ that Omar and I both played when we were younger and still continue to. It is also well-known and universal and almost every individual in our generation has played it or at least knows about it.</p>
+        
+        <p>Seeing that we currently live in a time with restrictions on the number of people in the same room at the same time and the limit of interaction, the installation we made requires having just one person in the frame at a time. The first person that goes in has a snapshot taken of their first pose, this image will then be displayed on the screen presented for the people that come after and they would reenact/imitate such image. Once they do it correctly, the screen turns green for a second and plays a ‘success’ sound. They are then given a few seconds to pose in a way that expresses their thoughts, ideas, or a move that they find personal. When the timer gets to 0, the system takes a screenshot of their pose and displays this image for the next person. The next person that goes into the frame will do the same; stop, pose like the previous person, record their individualized pose, and so on.</p>
+        </div>
+        <hr>
+
+        <div class="installation">
+            <h2>The Final Interactive Installation</h2>
+            <center><iframe data-aos="zoom-in" width="620" height="360" src="https://www.youtube.com/embed/nhM6arSwKlU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+            <h2>Here are some of the poses that we collected put together in a collage</h2>
+            <center><img data-aos="fade-up" src="pics.png" alt="image" data-aos-duration="1000"></center>
+        </div>
+        <hr>
+        
+        <div class="implementation">
+            <h2>The Implementation</h2>
+            <p>When working on the implementation, we found that using PoseNet and ml5.neuralNetwork() would be the best way to record poses and check for them later. In order to implement it, we looked into machine learning and watched videos online to learn about it which was challenging but also really exciting. It took us a while to understand key concepts but once we did, it was fairly easy to apply them to our project and plan out how each part of the project would be coded. After setting things up, we took turns doing a standstill pose on camera as the code collected training data. The data was put into an array and saved as a .json file, which we later normalized (the large x & y values for) and used to train the model. At this point, the code runs normally and the users can go in.</p>
+        </div>
+        <hr>
+        
+        <div class="code">
+            <h2>The Code</h2>
+            <p>Below are the most important sets of codes that are needed to explain how some of the complex functions are actually implemented.</p>    
+            <figure data-aos="fade-right" data-aos-duration="1000">
+                <center><img src="code1.png" alt="image"></center>
+                <figcaption>The first function (keyPressed) is basically what we use to record the data, train it, and save it. The second function is our setup function that initializes the canvas, loads the prerecorded pose, and loads the sound effects.</figcaption>
+            </figure>
+            
+            <figure data-aos="fade-left" data-aos-duration="1000">
+                <center><img src="code2.png" alt="image"></center>
+                <figcaption>These two functions are the ones that do most of the work. The first one (classifyPose) is the one that saves the different data points of the poses in the system to then compare with other poses to check if they are correct. The function after is the one that actually gets the result (gotResult) which checks if the confidence meaning the accuracy of the pose is close to 98% to leave space for a slight margin of error. If that’s the case most boolean variables change and are used elsewhere. The success sound is then taken and everything else occurs.</figcaption>
+            </figure>
+        </div>
+        <hr>
+      </div></center>
+
+      <div class="footer">
+        <p> © Alia Waleed</p> 
+      </div>
+
+      <!-- for animation on scoll -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>      
+</body>
+
+</html>
