@@ -6,22 +6,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <title> Outfit </title>
-        <link rel="icon" type="image/x-icon" href="/images/diaper.jpg">
+        <link rel="icon" type="image/x-icon" href="/images/diaper.jpg">   <!-- favicon of baby diaper -->
 	</head>
 	<body>
-
-        <center><h1> Hello! Please help me pick out a baby outfit!</h1></center>
-        <center><img src="images/shuffle.jpg" id="shuffle" height="45"></center>
+        
+        <section class="header">
+            <center><h1> Tired of picking out your baby's outfit everyday?<br>We're here to help!</h1></center>
+            <center><img src="images/shuffle.jpg" id="shuffle" height="45"></center>
+         </section>
 
         <!-- section for full outfit -->
         <section class="outfit">
-            <section class="counter">
+            <section class="topcnt">
                 <button class="button" id="top_decrease"> < </button>
                 <img id="topPhoto" src="images/tops5.jpg" width="300" height="300"></img>
                 <button class="button" id="top_increase"> > </button>
             </section>
     
-            <section class="cnt">
+            <section class="bottomcnt">
                 <button class="button" id="bottom_decrease"> < </button>
                 <img id="bottomPhoto" src="images/bottom5.jpg" width="300" height="300"></img>
                 <button class="button" id="bottom_increase"> > </button>
@@ -29,20 +31,27 @@
     
             <section class="shoecnt"> 
                 <button class="button" id="shoe_decrease"> < </button>
-                <img id="shoePhoto" src="images/shoes5.jpg" width="200" height="200"></img>
+                <img id="shoePhoto" src="images/shoes5.jpg" width="150" height="150"></img>
                 <button class="button" id="shoe_increase"> > </button>
             </section>
         </section>
 
-        <center><h1 class="toyH1">Now let's choose a toy!</h1></center>
+        <center><h1> Now let them choose their toy with the right and left arrows on the keyboard! </h1></center>
         <!-- section for toys -->
         <section class="game">
             <section class="toy"> 
                 <img id="toyPhoto" src="images/toy1.jpg" width="250" height="250"></img>
             </section>
-            <p> <- Use the right and left arrows on your keyboard -> </p>
         </section>
-        <center><h1> Thank you!</h1></center>
+
+        <section class="end">
+            <button class="button"  onclick="playAudio()" onclick="pauseAudio()" type="button"> <img src="https://cdn0.iconfinder.com/data/icons/media-11/512/Play-512.png" width="30" height="30" alt="submit" /></button>
+            <center><h1> Play some music for your kids and <br> have a great day! </h1></center>
+            <button class="button" onclick="pauseAudio()" type="button"> <img src="https://cdn0.iconfinder.com/data/icons/button-outline/64/BUTTON-04-512.png" width="30" height="30" alt="submit" /></button> 
+            <audio id="twinkle"><source src="audio/twinkle.mp3" type="audio/ogg"></audio>
+        </section>
+
+           
         
 		<script src="script.js" type="text/javascript"></script>
 	</body>
