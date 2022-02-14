@@ -1,6 +1,9 @@
 # Project 1 Documentation
 
-### Project Description
+### Title
+[The Digital Cookbook](https://aliawaleed.github.io/connectionsLab/project1/index.html)
+
+### Description
 This project presents baking and cooking recipes from a data set that consists of about 40,000 different recipes. The website displays a digital cookbook that ideally shows the full recipe in one screen, in that case, across two empty open book pages. The goal is to make it easy for the chef, baker, or whoever is making food to find the recipe of their choice in a quick search. This eliminates the need for looking through a printed book as well as making it convenient for them to look at the full recipe at once, without the need to scroll down to look at more instructions, since it's very likely that their hands could be dirty once they have started baking or cooking.
 
 ### Inspiration
@@ -21,3 +24,4 @@ The first challenge that I encountered was coming up with an idea. I looked thro
 Another challenge that I encountered was the formatting of the dataset as it was not formatted properly with no common names for the first element of each list, and so I created a new JSON file and copies the information that I needed in a readable format for the JavaScript file. 
 
 ### Lessons and Next Steps
+The next steps, as of now, is to work on the visual aspect of the website, mainly on the CSS and HTML, to make it look like an actual book and add a search bar.
