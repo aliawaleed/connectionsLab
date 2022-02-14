@@ -1,0 +1,12 @@
+body{
+    background-color: pink;
+}
+
+li {
+    list-style-type: none;
+    height: 30px;
+}
+
+ul{
+    padding: 1%;
+}
