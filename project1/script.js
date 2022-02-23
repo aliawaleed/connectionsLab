@@ -1,7 +1,6 @@
 let allRecipes;
 let recipes_array = [];
 let user_input = [];
-let options = [];
 
 // add user input to array
 function addRecord() {
@@ -11,15 +10,40 @@ function addRecord() {
     displayRecord();
 }
 
+function goBack() {
+    location.reload();
+}
+
+// function openRecipe(){
+
+// }
+
+function search(input) {
+    if(event.key === 'Enter') {
+        var input = document.getElementById('inputtext');
+        user_input.push(input.value);
+        input.value = "";  
+        displayRecord();      
+    }
+}
+
 function displayRecord() {
     document.getElementById("input").innerHTML = "You have: " + user_input.join(", ");
-}
+}   
 
 function printarray() {
     console.log(user_input)
     compare(user_input);
-    console.log("options:", options);
+    let inpBox = document.getElementById("input-box");
+    inpBox.style.display = "none";
+    let polaroids = document.getElementById("polaroids");
+    polaroids.style.display = "none";
+    let back = document.getElementById("back");
+    back.style.display = "block";
 }
+
+
+let options = [];
 
 function compare(userinput){
     let recipesDivs = document.querySelectorAll(".recipe");
@@ -43,9 +67,8 @@ function compare(userinput){
             }
         }
         dict[i] = cnt;
-        // console.log("dict", dict);
-        // console.log(Object.keys(dict).length);
     }
+
     console.log(Object.keys(dict).length);
     console.log("dict", dict);
 
@@ -58,12 +81,12 @@ function compare(userinput){
         console.log("the max is", max);
     }
 
-    let random = [];
+    // let options = [];
 
     for(var key in dict){
         var value = dict[key];
         if (value == max){
-            random.push(recipesDivs[key]);
+            options.push(recipesDivs[key]);
             // recipesDivs[key].style.display = "block"; //to print all
             console.log("recipe",recipesDivs[key]);
         }
@@ -71,14 +94,34 @@ function compare(userinput){
 
     if (max == 0) { //print none exist
         document.getElementById("input").innerHTML = "None of the recipes have that. Please input other ingredients!";
+        let other = document.getElementById("another");
+        other.style.display = "none";
         console.log("error");
     } else {
-        var item = random[Math.floor(Math.random()*random.length)]; //to get random item
-        console.log("item", item);
+        var item = options[Math.floor(Math.random()*options.length)]; //to get random item
         item.style.display = "block";
+        let other = document.getElementById("another");
+        other.style.display = "block";
     }
 
-    console.log("hi",getKeyByValue(dict,max));
+    console.log("options",options);
+}
+
+function anotherOption(){
+    let another = [];
+    for (let i = 0; i < options.length; i++){
+        another.push(options[i]);
+    }
+    console.log("another",another);
+
+    for (let i = 0; i < another.length; i++){
+        var displaySetting = another[i].style.display;
+        if (displaySetting == "block"){
+            another[i].style.display = "none";
+        }
+    }
+    var item = another[Math.floor(Math.random()*another.length)]; //to get random item
+    item.style.display = "block";
 }
 
 function getKeyByValue(object, value) {
@@ -88,9 +131,8 @@ function getKeyByValue(object, value) {
 // on load
 window.addEventListener("load", () => {
     console.log("page is loaded");
-    // document.getElementById("list").style.display = 'none';
 
-    fetch("./sample.json") //fetch the information - or add link if from an online URL
+    fetch("./sample.json") //fetch the information from the json file
     .then(response => response.json()) //returning promise object 
     .then((data) => {
         console.log(data); //seeing the data
@@ -142,16 +184,46 @@ window.addEventListener("load", () => {
                 recipeDiv.appendChild(instructions); // append the li to the ul
             }
             recipeDiv.style.display = "none";
+            let back = document.getElementById("back");
+            back.style.display = "none";
+            let other = document.getElementById("another");
+            other.style.display = "none";
             let list = document.getElementById("list");
             list.appendChild(recipeDiv);
+
+        }
+        for (let i = 0; i < 4; i++){
+            let random = Math.floor(Math.random()*recipes_array.length)
+
+            let polaroidDiv = document.createElement("div");
+            polaroidDiv.classList.add("polaroid");
+
+            let rImage = document.createElement('img');
+            rImage.classList.add("imgPolaroid");
+            rImage.setAttribute("id","imgPolaroid");
+            rImage.src = recipes_array[random].picture_link;
+            polaroidDiv.appendChild(rImage);
+
+            let rDiv = document.createElement('div');
+            rDiv.classList.add("contain");
+
+            let rName = document.createElement("p"); //create a header(2) for each recipe
+            rName.classList.add("pTitle");
+            rName.textContent = recipes_array[random].title; //add text to list
+            rDiv.appendChild(rName);
+            polaroidDiv.appendChild(rDiv);
+
+            let plist = document.getElementById("polaroids");
+            plist.appendChild(polaroidDiv);
+
+            // rImage.addEventListener("click", openRecipe);
+            
+            console.log(random);
         }
     })
 })
 
-// document.addEventListener("keyup", function(event) {
-//     if (event.keyCode === 13) {
-//         document.getElementById("list").style.display = 'block';
-//     }
-// });
+
+
 // api to spell check
 // https://stackoverflow.com/questions/46585978/javascript-store-user-input-in-an-array-on-button-click/46586262 url for input

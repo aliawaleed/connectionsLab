@@ -15,23 +15,30 @@
                 <section class="open-book">
                     <header>
                         <h1>The Cookbook</h1>
+                        <button type="button" id="back" onclick="goBack();"> BACK</button>
+                        <button type="button" id="another" onclick="anotherOption();">Another</button>
                         <h6>Alia Waleed</h6>
                     </header>
-                    <article>
-                        <table>
-                            <tr>
-                                <td>Enter ingredients: </td>
-                                <td><input type="text" id="inputtext" /></td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td><button type="button" id="add" onclick="addRecord();">Add </button>
-                                <button type="button" id="display" onclick="printarray();">Display</button>
-                                </td>
-                            </tr>
-                        </table>
+                    <article id="article">
+                        <div id="input-box">
+                            <table>
+                                <tr>
+                                    <td>Enter ingredients: </td>
+                                    <td><input type="text" id="inputtext" onkeydown="search(this)"/></td>
+                                    <td>
+                                        <button type="button" id="add" onclick="addRecord();">Add </button>
+                                        <button type="button" id="display" onclick="printarray();">Display</button>
+                                        <!-- <button type="button" id="another" onclick="anotherOption();">Another</button> -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+
                         <div id="input"></div>
                         <ul class="list" id="list"> </ul>
+                        <div class="polaroids" id="polaroids"></div>
+
                     </article>
                     <footer>
                         <ol id="page-numbers">
