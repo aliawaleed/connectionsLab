@@ -9,9 +9,38 @@
     <title>Cookbook</title>
 </head>
 <body>
-   <section class="container">
-    <ul class="list" id="list"> </ul>
-   </section>
 
+    <div id="wrapper">
+        <section class="container">
+                <section class="open-book">
+                    <header>
+                        <h1>The Cookbook</h1>
+                        <h6>Alia Waleed</h6>
+                    </header>
+                    <article>
+                        <table>
+                            <tr>
+                                <td>Enter ingredients: </td>
+                                <td><input type="text" id="inputtext" /></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><button type="button" id="add" onclick="addRecord();">Add </button>
+                                <button type="button" id="display" onclick="printarray();">Display</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="input"></div>
+                        <ul class="list" id="list"> </ul>
+                    </article>
+                    <footer>
+                        <ol id="page-numbers">
+                            <li>1</li>
+                            <li>2</li>
+                        </ol>
+                    </footer>
+                </section>
+        </section>
+    </div>
 </body>
 </html>
