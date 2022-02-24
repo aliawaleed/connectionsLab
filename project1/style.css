@@ -6,12 +6,79 @@
     box-sizing: border-box;
 }
 
+p {
+    margin: 0%;
+    font-family: "Crimson Text";
+    font-size: 18px;
+}
+
+#enter {
+    font-family: "Playfair Display";
+}
+
 .polaroid {
     width: 65%;
     height: 10%;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 3% !important;
+}
+
+article {
+    height: 66em;
+}
+
+input {
+    border:1px solid #8a5555;
+}
+
+button {
+    border: 1px solid #663300;
+    background-color: white;
+    color: #663300;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#web-instructions {
+    padding-top: 5%;
+}
+
+table {
+    padding-top: 5%;
+}
+
+#empty {
+    height: 60em;
+}
+
+#add {
+    border-radius: 50%
+}
+#add:hover {
+    color: white;
+    background-color: #663300;
+}
+
+.button {
+    border-radius: 50%;
+}
+
+#buttonImg {
+    width: 0.75cm;
+}
+
+.button:hover {
+    color: white;
+    background-color: #663300;
+}
+
+h2{
+    font: 'Playfair Display', sans-serif;
+    letter-spacing: 0.1em;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
 }
   
 .contain {
@@ -30,6 +97,7 @@
 
 body {
     background-color: #1d1f20;
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(https://thumbs.dreamstime.com/b/red-table-cloth-background-seamless-pattern-vector-illustration-traditional-gingham-dining-fabric-texture-checkered-59977527.jpg);
     font: 16px/1.25 'Crimson Text', sans-serif;
     margin: 0;
 }
@@ -69,18 +137,11 @@ img {
     padding: 2em;
 }
 
+
 .open-book * {
     position: relative;
 }
 
-/* Highlight */
-.open-book *::-moz-selection {
-    background: rgba(222,255,0,0.75);
-}
-
-.open-book *::selection {
-    background: rgba(222,255,0,0.75);
-}
 
 /* Header/Footer */
 .open-book header {
@@ -114,52 +175,18 @@ img {
     text-align: right;
 }
 
-/* Chapter Title */
-.open-book .chapter-title {
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA2NCA2NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNjQgNjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCiAgICA8Zz4NCiAgICAJPHBhdGggZD0iTTAsMzJMMzIsMGwzMiwzMkwzMiw2NEwwLDMyeiBNOCwzMmwyNCwyNGwyNC0yNEwzMiw4TDgsMzJ6IE0xNiwzMmwxNi0xNmwxNiwxNkwzMiw0OEwxNiwzMnogTTI0LDMybDgsOGw4LThsLTgtOEwyNCwzMnoiIC8+DQogICAgPC9nPg0KPC9zdmc+) bottom center no-repeat;
-    background-size: 0.5em 0.5em;
-    font: 700 7vw/1.25 'Playfair Display', sans-serif;
-    letter-spacing: 0.125em;
-    margin: 0 0 1em 0;
-    padding: 1em 0;
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.open-book .chapter-title:before,
-.open-book .chapter-title:after {
-    border: solid 0 #000;
-    border-width: 0.05em 0;
-    bottom: calc((0.125em / 2) * 3);
-    content: '';
-    height: 0.15em;
-    position: absolute;
-    width: calc(50% - (1em / 2));
-}
-
-.open-book .chapter-title:before {
-    left: 0;
-}
-
-.open-book .chapter-title:after {
-    right: 0;
-}
-
-/* Body Copy */
 .open-book article {
     line-height: 1.5;
 }
 
 .open-book article *:not(.chapter-title):not(hr):not(dl) {
     margin: 0 auto;
-    /* margin-bottom: 3%; */
     max-width: 28.125em;
 }
 
-.open-book .chapter-title + p:first-of-type {
+/* .open-book .chapter-title + p:first-of-type {
     text-indent: 0;
-}
+} */
 
 .open-book .chapter-title + p:first-of-type:first-letter {
     float: left;
@@ -188,8 +215,12 @@ img {
         position: relative;
     }
 
+    article {
+        height: 33em;
+    }
+
     .open-book:before {
-        background-color: #8B4513;
+        background-color: #663300;
         border-radius: 0.25em;
         bottom: -1em;
         content: '';
@@ -215,6 +246,7 @@ img {
     .open-book > * {
         column-count: 2;
         column-gap: 6em;
+        column-fill: auto;
         position: relative;
         z-index: 1;
     }
@@ -312,10 +344,9 @@ img {
         height: 0.125em;
     }
 
-    /* Body Copy */
-
     .open-book article > ul,
     .open-book article > ol {
         padding-left: 1em;
+
     }
 }

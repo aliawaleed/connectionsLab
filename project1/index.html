@@ -15,29 +15,36 @@
                 <section class="open-book">
                     <header>
                         <h1>The Cookbook</h1>
-                        <button type="button" id="back" onclick="goBack();"> BACK</button>
-                        <button type="button" id="another" onclick="anotherOption();">Another</button>
+                        <!-- <button type="button" id="back" class="button" onclick="goBack();"> <img id="buttonImg" src="https://cdn.iconscout.com/icon/free/png-256/home-1767389-1505253.png"> </button>
+                        <button type="button" id="another" class="button" onclick="anotherOption();"> <img id="buttonImg" src="https://cdn-icons-png.flaticon.com/512/3580/3580329.png"> </button> -->
                         <h6>Alia Waleed</h6>
                     </header>
+                    <p>
+                        <button type="button" id="back" class="button" onclick="goBack();"> <img id="buttonImg" src="https://cdn.iconscout.com/icon/free/png-256/home-1767389-1505253.png"> </button>
+                        <button type="button" id="another" class="button" onclick="anotherOption();"> <img id="buttonImg" src="https://cdn-icons-png.flaticon.com/512/3580/3580329.png"> </button>
+                    </p>
                     <article id="article">
+                        <h2 id="finder">Find Me a Recipe</h2>
+                        
                         <div id="input-box">
+                            <center><p id="web-instructions"> Add all ingredients, press display, and we'll get you the recipe!</p></center>
                             <table>
                                 <tr>
-                                    <td>Enter ingredients: </td>
-                                    <td><input type="text" id="inputtext" onkeydown="search(this)"/></td>
+                                    <td id="enter"> Enter ingredients: </td>
+                                    <td><input type="text" id="inputtext" onkeypress="search(this)" onkeydown="return /[a-z]/i.test(event.key)" /></td>
                                     <td>
-                                        <button type="button" id="add" onclick="addRecord();">Add </button>
+                                        <button type="button" id="add" onclick="addRecord();"> + </button>
                                         <button type="button" id="display" onclick="printarray();">Display</button>
-                                        <!-- <button type="button" id="another" onclick="anotherOption();">Another</button> -->
                                     </td>
                                 </tr>
                             </table>
+                            <!-- <center><p id="web-instructions"> Add all ingredients, press display, and we'll get you the recipe!</p></center> -->
                         </div>
 
-
                         <div id="input"></div>
+                        <!-- <div id="empty"></div> -->
                         <ul class="list" id="list"> </ul>
-                        <div class="polaroids" id="polaroids"></div>
+                        <!-- <div class="polaroids" id="polaroids"></div> -->
 
                     </article>
                     <footer>

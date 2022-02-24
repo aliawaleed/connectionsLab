@@ -5,18 +5,26 @@ let user_input = [];
 // add user input to array
 function addRecord() {
     var input = document.getElementById('inputtext');
-    user_input.push(input.value);
-    input.value = "";  
-    displayRecord();
+    console.log(input.value);
+    if (input.value != "") {
+        user_input.push(input.value);
+        input.value = "";  
+        displayRecord();
+    }
+    else{
+        document.getElementById("web-instructions").innerHTML = "Please write the ingredient first!";
+    }
 }
 
 function goBack() {
     location.reload();
 }
 
-// function openRecipe(){
-
-// }
+function openRecipe(random){
+    console.log("hi");
+    // let elem = document.getElementsByClassName('polaroid');
+    console.log(random.value);
+}
 
 function search(input) {
     if(event.key === 'Enter') {
@@ -28,18 +36,22 @@ function search(input) {
 }
 
 function displayRecord() {
-    document.getElementById("input").innerHTML = "You have: " + user_input.join(", ");
+    document.getElementById("input").innerHTML =  "<p>" + "Ingredients list: " + "</p>"+ "<p>" + user_input.join("</p><p>") + "</p>";
 }   
 
 function printarray() {
     console.log(user_input)
-    compare(user_input);
-    let inpBox = document.getElementById("input-box");
-    inpBox.style.display = "none";
-    let polaroids = document.getElementById("polaroids");
-    polaroids.style.display = "none";
-    let back = document.getElementById("back");
-    back.style.display = "block";
+    if (user_input.length == 0) {
+        document.getElementById("web-instructions").innerHTML = "Please add ingredients first!";
+        console.log("add");
+    }
+    else {
+        compare(user_input);
+        // let polaroids = document.getElementById("polaroids");
+        // polaroids.style.display = "none";
+        // let empty = document.getElementById("empty");
+        // empty.style.display = "none";
+    }
 }
 
 
@@ -55,7 +67,7 @@ function compare(userinput){
         for (let u = 0; u < user_input.length; u++){
             new_list.push(0);
         }
-        console.log(new_list);
+        // console.log(new_list);
          
         for(let j = 0; j < recipes_array[i].ingredients.length; j++){
             for(let k = 0; k < user_input.length; k++){
@@ -85,15 +97,15 @@ function compare(userinput){
 
     for(var key in dict){
         var value = dict[key];
-        if (value == max){
+        if (value == max && value > 0 ){
             options.push(recipesDivs[key]);
             // recipesDivs[key].style.display = "block"; //to print all
-            console.log("recipe",recipesDivs[key]);
+            // console.log("recipe",recipesDivs[key]);
         }
     }
 
     if (max == 0) { //print none exist
-        document.getElementById("input").innerHTML = "None of the recipes have that. Please input other ingredients!";
+        document.getElementById("web-instructions").innerHTML = "None of the recipes have that. Please input other ingredients!";
         let other = document.getElementById("another");
         other.style.display = "none";
         console.log("error");
@@ -102,6 +114,15 @@ function compare(userinput){
         item.style.display = "block";
         let other = document.getElementById("another");
         other.style.display = "block";
+        let back = document.getElementById("back");
+        back.style.display = "block";
+        let inpBox = document.getElementById("input-box");
+        inpBox.style.display = "none";
+        let finder = document.getElementById("finder");
+        finder.style.display = "none";
+        let input = document.getElementById("input");
+        input.style.display = "none";
+        document.getElementById("article").style.height = "31em";
     }
 
     console.log("options",options);
@@ -192,34 +213,34 @@ window.addEventListener("load", () => {
             list.appendChild(recipeDiv);
 
         }
-        for (let i = 0; i < 4; i++){
-            let random = Math.floor(Math.random()*recipes_array.length)
+        // for (let i = 0; i < 4; i++){
+        //     let random = Math.floor(Math.random()*recipes_array.length)
 
-            let polaroidDiv = document.createElement("div");
-            polaroidDiv.classList.add("polaroid");
+        //     let polaroidDiv = document.createElement("div");
+        //     polaroidDiv.classList.add("polaroid");
 
-            let rImage = document.createElement('img');
-            rImage.classList.add("imgPolaroid");
-            rImage.setAttribute("id","imgPolaroid");
-            rImage.src = recipes_array[random].picture_link;
-            polaroidDiv.appendChild(rImage);
+        //     let rImage = document.createElement('img');
+        //     rImage.classList.add("imgPolaroid");
+        //     rImage.setAttribute("id","imgPolaroid");
+        //     rImage.src = recipes_array[random].picture_link;
+        //     polaroidDiv.appendChild(rImage);
 
-            let rDiv = document.createElement('div');
-            rDiv.classList.add("contain");
+        //     let rDiv = document.createElement('div');
+        //     rDiv.classList.add("contain");
 
-            let rName = document.createElement("p"); //create a header(2) for each recipe
-            rName.classList.add("pTitle");
-            rName.textContent = recipes_array[random].title; //add text to list
-            rDiv.appendChild(rName);
-            polaroidDiv.appendChild(rDiv);
+        //     let rName = document.createElement("p"); //create a header(2) for each recipe
+        //     rName.classList.add("pTitle");
+        //     rName.textContent = recipes_array[random].title; //add text to list
+        //     rDiv.appendChild(rName);
+        //     polaroidDiv.appendChild(rDiv);
 
-            let plist = document.getElementById("polaroids");
-            plist.appendChild(polaroidDiv);
+        //     let plist = document.getElementById("polaroids");
+        //     plist.appendChild(polaroidDiv);
 
-            // rImage.addEventListener("click", openRecipe);
+        //     rImage.addEventListener("click", openRecipe(random));
             
-            console.log(random);
-        }
+        //     console.log(random);
+        // }
     })
 })
 
