@@ -20,12 +20,6 @@ function goBack() {
     location.reload();
 }
 
-function openRecipe(random){
-    console.log("hi");
-    // let elem = document.getElementsByClassName('polaroid');
-    console.log(random.value);
-}
-
 function search(input) {
     if(event.key === 'Enter') {
         var input = document.getElementById('inputtext');
@@ -47,10 +41,6 @@ function printarray() {
     }
     else {
         compare(user_input);
-        // let polaroids = document.getElementById("polaroids");
-        // polaroids.style.display = "none";
-        // let empty = document.getElementById("empty");
-        // empty.style.display = "none";
     }
 }
 
@@ -92,8 +82,6 @@ function compare(userinput){
         }
         console.log("the max is", max);
     }
-
-    // let options = [];
 
     for(var key in dict){
         var value = dict[key];
@@ -213,38 +201,5 @@ window.addEventListener("load", () => {
             list.appendChild(recipeDiv);
 
         }
-        // for (let i = 0; i < 4; i++){
-        //     let random = Math.floor(Math.random()*recipes_array.length)
-
-        //     let polaroidDiv = document.createElement("div");
-        //     polaroidDiv.classList.add("polaroid");
-
-        //     let rImage = document.createElement('img');
-        //     rImage.classList.add("imgPolaroid");
-        //     rImage.setAttribute("id","imgPolaroid");
-        //     rImage.src = recipes_array[random].picture_link;
-        //     polaroidDiv.appendChild(rImage);
-
-        //     let rDiv = document.createElement('div');
-        //     rDiv.classList.add("contain");
-
-        //     let rName = document.createElement("p"); //create a header(2) for each recipe
-        //     rName.classList.add("pTitle");
-        //     rName.textContent = recipes_array[random].title; //add text to list
-        //     rDiv.appendChild(rName);
-        //     polaroidDiv.appendChild(rDiv);
-
-        //     let plist = document.getElementById("polaroids");
-        //     plist.appendChild(polaroidDiv);
-
-        //     rImage.addEventListener("click", openRecipe(random));
-            
-        //     console.log(random);
-        // }
     })
 })
-
-
-
-// api to spell check
-// https://stackoverflow.com/questions/46585978/javascript-store-user-input-in-an-array-on-button-click/46586262 url for input
