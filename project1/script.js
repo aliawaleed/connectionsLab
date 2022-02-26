@@ -1,165 +1,148 @@
-let allRecipes;
-let recipes_array = [];
-let user_input = [];
+let allRecipes; //to obtain all recipes from json file
+let recipes_array = []; //array for all recipes for easy access
+let user_input = []; //ingredients from user input to later compare
+var current = -1; //recipe currently displayed
 
 // add user input to array
-function addRecord() {
+function addIngredient() {
     var input = document.getElementById('inputtext');
-    console.log(input.value);
+    // console.log(input.value);
     if (input.value != "") {
         user_input.push(input.value);
         input.value = "";  
-        displayRecord();
+        displayIngredients();
     }
     else{
-        document.getElementById("web-instructions").innerHTML = "Please write the ingredient first!";
+        document.getElementById("web-instructions").innerHTML = "Please write the ingredient first!"; //error checking - if user doesn't write an ingredient before clicking the button
     }
 }
 
-function goBack() {
-    location.reload();
-}
-
-function search(input) {
+function addIngredientOnEnter() { // add ingredient if user presses enter as well
     if(event.key === 'Enter') {
-        var input = document.getElementById('inputtext');
-        user_input.push(input.value);
-        input.value = "";  
-        displayRecord();      
+        addIngredient();    
     }
 }
 
-function displayRecord() {
+function displayIngredients() { //to display chosen ingredients
     document.getElementById("input").innerHTML =  "<p>" + "Ingredients list: " + "</p>"+ "<p>" + user_input.join("</p><p>") + "</p>";
 }   
 
-function printarray() {
+function printarray() { //when user clicks display
     console.log(user_input)
-    if (user_input.length == 0) {
+    if (user_input.length == 0) { //if no user input
         document.getElementById("web-instructions").innerHTML = "Please add ingredients first!";
-        console.log("add");
     }
     else {
-        compare(user_input);
+        compare(); //compare user input with recipes
     }
 }
 
+function goBack() { //if user clicks home icon
+    location.reload();
+}
 
-let options = [];
-
-function compare(userinput){
-    let recipesDivs = document.querySelectorAll(".recipe");
-    var dict = {};
+let options = []; //array of options that could be displayed to the user
+function compare(){
+    let recipesDivs = document.querySelectorAll(".recipe"); //nodelist for all recipes
+    var dict = {}; //dictionary to store recipes with the number of ingredients that they match based on user input
     for(let i = 0; i < recipes_array.length; i++){
-        let cnt = 0;
-        let new_list = [];
+        let cnt = 0; //start with 0 matches
+        let new_list = []; // boolean array to check if user input exists in recipe (0 if no, 1 if yes)
 
         for (let u = 0; u < user_input.length; u++){
             new_list.push(0);
         }
-        // console.log(new_list);
          
-        for(let j = 0; j < recipes_array[i].ingredients.length; j++){
-            for(let k = 0; k < user_input.length; k++){
-                if ((recipes_array[i].ingredients[j].includes(" " + user_input[k] + " ") || recipes_array[i].ingredients[j].includes(user_input[k] + "s"))&& new_list[k] == 0){
+        for(let j = 0; j < recipes_array[i].ingredients.length; j++){ //for each recipe ingredient
+            for(let k = 0; k < user_input.length; k++){ //for each user input
+                if ((recipes_array[i].ingredients[j].includes(" " + user_input[k] + " ") || recipes_array[i].ingredients[j].includes(user_input[k] + "s")) && new_list[k] == 0){ //if the recipe includes the user input, separated by space or with an s as plural AND it wasn't previously checked (to avoid for example egg and egg yolk to be seen as 2 different things)
                     cnt += 1;
-                    new_list[k] = 1;
-                    console.log(cnt);
+                    new_list[k] = 1; //change boolean to 1
                 }
             }
         }
-        dict[i] = cnt;
+        dict[i] = cnt; //store value of matches to the recipe
     }
 
-    console.log(Object.keys(dict).length);
-    console.log("dict", dict);
+    // console.log("dictionary", dict); //print recipe with matches for error checking
 
-    let max = 0;
+    //to find the recipes with maximum match value
+    let max = 0; 
     for(var key in dict){
         var value = dict[key];
         if (value > max){
-            max = value;
+            max = value; //set max value to the highest one
         }
         console.log("the max is", max);
     }
 
     for(var key in dict){
         var value = dict[key];
-        if (value == max && value > 0 ){
+        if (value == max && value > 0 ){ //find all recipes with the same number of matches and add them to list of options
             options.push(recipesDivs[key]);
-            // recipesDivs[key].style.display = "block"; //to print all
-            // console.log("recipe",recipesDivs[key]);
         }
     }
 
-    if (max == 0) { //print none exist
+    if (max == 0) { // if none of the ingredients are matching
         document.getElementById("web-instructions").innerHTML = "None of the recipes have that. Please input other ingredients!";
-        let other = document.getElementById("another");
-        other.style.display = "none";
-        console.log("error");
     } else {
-        var item = options[Math.floor(Math.random()*options.length)]; //to get random item
-        item.style.display = "block";
-        let other = document.getElementById("another");
+        let random = Math.floor(Math.random()*options.length); //get random index from array of options
+        current = random; //set current recipe to value of index 
+        var item = options[random]; // get random recipe from options array
+        item.style.display = "block"; //display the recipe
+        let other = document.getElementById("another"); //shuffle button
         other.style.display = "block";
-        let back = document.getElementById("back");
+        let back = document.getElementById("back"); //back/menu button
         back.style.display = "block";
-        let inpBox = document.getElementById("input-box");
+        let inpBox = document.getElementById("input-box"); //user input box
         inpBox.style.display = "none";
-        let finder = document.getElementById("finder");
+        let finder = document.getElementById("finder"); //title
         finder.style.display = "none";
-        let input = document.getElementById("input");
+        let input = document.getElementById("input"); //list of user input
         input.style.display = "none";
-        document.getElementById("article").style.height = "31em";
+        document.getElementById("article").style.height = "31em"; // to maintain height of book
     }
-
-    console.log("options",options);
+    // console.log("options",options); // log all of the options that match - for error checking
 }
 
-function anotherOption(){
-    let another = [];
-    for (let i = 0; i < options.length; i++){
-        another.push(options[i]);
-    }
-    console.log("another",another);
+function anotherOption(){ //another option from array of options if user clicks on the shuffle button
+    options[current].style.display = "none"; //do not display current recipe
 
-    for (let i = 0; i < another.length; i++){
-        var displaySetting = another[i].style.display;
-        if (displaySetting == "block"){
-            another[i].style.display = "none";
+    let random = Math.floor(Math.random()*options.length); //get another random recipe
+    while (random == current) {  // to avoid getting the same recipe twice in a row
+        if (options.length == 1){ //if there is only one recipe that matches display alert
+            alert("Sorry! that's the only recipe we have that matches your input!");
+            break;
+        }
+        // console.log("same"); //to see how many times the random value is the same
+        random = Math.floor(Math.random()*options.length)
+        if (random != current) {
+            break;
         }
     }
-    var item = another[Math.floor(Math.random()*another.length)]; //to get random item
-    item.style.display = "block";
+    current = random; //set new current value
+    options[random].style.display = "block";
 }
 
-function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
-}
-
-// on load
-window.addEventListener("load", () => {
-    console.log("page is loaded");
-
+window.addEventListener("load", () => { // on load
     fetch("./sample.json") //fetch the information from the json file
     .then(response => response.json()) //returning promise object 
     .then((data) => {
-        console.log(data); //seeing the data
+        // console.log(data); // to know number of recipes
         allRecipes = data.recipes;
-        console.log(allRecipes);
 
-        for(let i = 0; i < allRecipes.length; i++){
+        for(let i = 0; i < allRecipes.length; i++){ //push all recipes to array
             recipes_array.push(allRecipes[i]);
         }
 
-        //create html elements for the recipes
+     //create html elements for the recipes
         for(let i = 0; i < recipes_array.length; i++){
-            let recipeDiv = document.createElement("div");
+            let recipeDiv = document.createElement("div"); //div for each individual recipe
             recipeDiv.classList.add("recipe");
-            let recipeName = document.createElement('h2'); //create a header(2) for each recipe
-            recipeName.classList.add("list__item");
-            recipeName.textContent = recipes_array[i].title; //add text to list
-            recipeDiv.appendChild(recipeName);
+            let recipeName = document.createElement('h2');
+            recipeName.classList.add("recipe_name"); //for recipe title
+            recipeName.textContent = recipes_array[i].title;
+            recipeDiv.appendChild(recipeName); //add recipe title to recipe div
 
             //adding images
             let recipeImage = document.createElement('img');
@@ -170,28 +153,31 @@ window.addEventListener("load", () => {
             //headline for ingredients
             let ingredientHeadline = document.createElement("h4");
             ingredientHeadline.textContent = "Ingredients: ";
-            recipeDiv.appendChild(ingredientHeadline); // append the li to the ul
+            recipeDiv.appendChild(ingredientHeadline);
 
-            for(let j = 0; j < recipes_array[i].ingredients.length - 1; j++){ // loop through array of instructions
+            let allIngredients = document.createElement("ul");
+            allIngredients.classList.add("all_ingredients");
+            for(let j = 0; j < recipes_array[i].ingredients.length - 1; j++){ // loop through array of ingredients (-1 for empty string in json file)
                 let ingredients = document.createElement('li'); //create an li for the ingredients
                 ingredients.classList.add("list__item");
                 ingredients.textContent = recipes_array[i].ingredients[j]; //add text to list
-                recipeDiv.appendChild(ingredients); // append the li to the ul
+                allIngredients.appendChild(ingredients);
             }
+            recipeDiv.appendChild(allIngredients);
 
             //headline for instructions
             let instructionsHeadline = document.createElement("h4");
             instructionsHeadline.textContent = "Instructions: ";
             recipeDiv.appendChild(instructionsHeadline);
 
-            //create an li for the ingredients and give it the class "list"
-            let instructionsArray = recipes_array[i].instructions.split('.'); // split the instructions string and add them in an array
+            let instructionsArray = recipes_array[i].instructions.split('.');// split  instructions string and add them to an array
             for(let k = 0; k < instructionsArray.length - 1; k++){ // length -1 due to the last element being /n
-                let instructions = document.createElement('li'); //create an li for the ingredients
+                let instructions = document.createElement('li'); //create an li for the instructions
                 instructions.classList.add("instructions__list__item");
                 instructions.textContent = (k+1) + "." + instructionsArray[k]; //number them and add text to list
-                recipeDiv.appendChild(instructions); // append the li to the ul
+                recipeDiv.appendChild(instructions);
             }
+            //elements to display
             recipeDiv.style.display = "none";
             let back = document.getElementById("back");
             back.style.display = "none";
@@ -199,7 +185,6 @@ window.addEventListener("load", () => {
             other.style.display = "none";
             let list = document.getElementById("list");
             list.appendChild(recipeDiv);
-
         }
     })
 })

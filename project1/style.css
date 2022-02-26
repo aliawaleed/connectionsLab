@@ -1,10 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,700,900,400italic,700italic,900italic|Playfair+Display:400,700,900,400italic,700italic,900italic|Rock+Salt:400);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text:400,700,900,400italic,700italic,900italic|Playfair+Display:400,700,900,400italic,700italic,900italic|Rock+Salt:400); /*loading font*/
 
-*,
-:before,
-:after {
-    box-sizing: border-box;
+body {
+    font: 16px/1.25 'Crimson Text', sans-serif;
+    margin: 0;
 }
+
+* {box-sizing: border-box;} /*take into accound padding and margins for everything on the page*/
 
 p {
     margin: 0%;
@@ -12,19 +13,9 @@ p {
     font-size: 18px;
 }
 
-#enter {
-    font-family: "Playfair Display";
-}
+input{border:1px solid #8a5555;} /* user input box */
 
-article {
-    height: 66em;
-}
-
-input {
-    border:1px solid #8a5555;
-}
-
-button {
+button{
     border: 1px solid #663300;
     background-color: white;
     color: #663300;
@@ -32,64 +23,35 @@ button {
     cursor: pointer;
 }
 
-#web-instructions {
+#enter{font-family: "Playfair Display";} /* enter instruction */
+
+#web-instructions { /* user instructions (not recipe) */
     padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: center;
 }
 
-table {
-    padding-top: 5%;
-}
+.button {border-radius: 50%;}
 
-#add {
-    border-radius: 50%
-}
-#add:hover {
+#buttonImg {width: 0.75cm;}
+
+.button:hover, #display:hover {
     color: white;
     background-color: #663300;
 }
 
-.button {
-    border-radius: 50%;
-}
-
-#buttonImg {
-    width: 0.75cm;
-}
-
-.button:hover {
-    color: white;
-    background-color: #663300;
-}
-
-h2{
+h2{ /* for recipe name */
     font: 'Playfair Display', sans-serif;
     letter-spacing: 0.1em;
     position: relative;
     text-align: center;
     text-transform: uppercase;
 }
-  
-.contain {
-    margin-bottom: 10%;
-}
 
-body {
-    background-color: #1d1f20;
-    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(https://thumbs.dreamstime.com/b/red-table-cloth-background-seamless-pattern-vector-illustration-traditional-gingham-dining-fabric-texture-checkered-59977527.jpg);
-    font: 16px/1.25 'Crimson Text', sans-serif;
-    margin: 0;
-}
-
-#wrapper {
+.container { /* location of book on page */
     margin-left: auto;
     margin-right: auto;
     max-width: 80em;
-}
-
-#container {
-    float: left;
-    padding: 1em;
-    width: 100%;
 }
 
 li {
@@ -98,8 +60,7 @@ li {
 }
 
 img {
-    /* height: 5cm; */
-    width: 8cm;
+    width: 7cm;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -107,27 +68,15 @@ img {
     padding-bottom: 5%;
 }
 
-/*** OPEN BOOK ***/
-.open-book {
+.open-book { /* book pages */
     background: #fff;
-    box-shadow: rgba(0,0,0,0.5) 0 1em 3em;
-    color: #000;
     padding: 2em;
 }
 
-
-.open-book * {
-    position: relative;
-}
-
-
 /* Header/Footer */
-.open-book header {
-    padding-bottom: 1em;
-}
+.open-book header {padding-bottom: 1em;}
 
-.open-book header *,
-.open-book footer * {
+.open-book header *, .open-book footer * {
     font: 700 1em/1.25 'Playfair Display', sans-serif;
     letter-spacing: 0.125em;
     margin: 0;
@@ -138,33 +87,23 @@ img {
     text-transform: uppercase;
 }
 
-.open-book footer {
-    padding-top: 1em;
-}
+.open-book footer {padding-top: 1em;}
 
-.open-book footer #page-numbers {
+.open-book footer #page-numbers { /* do not display book pages if on phone or smaller device */
     display: none;
     list-style: none;
     padding: 0;
     text-align: left;
 }
 
-.open-book footer #page-numbers > li:last-child {
-    text-align: right;
-}
+.open-book footer #page-numbers > li:last-child {text-align: right;} /* put page number for second page on the right */
 
-.open-book article {
-    line-height: 1.5;
-}
+.open-book article {line-height: 1.5;}
 
 .open-book article *:not(.chapter-title):not(hr):not(dl) {
     margin: 0 auto;
     max-width: 28.125em;
 }
-
-/* .open-book .chapter-title + p:first-of-type {
-    text-indent: 0;
-} */
 
 .open-book .chapter-title + p:first-of-type:first-letter {
     float: left;
@@ -182,10 +121,6 @@ img {
     padding-left: 1em;
 }
 
-.open-book mark {
-    background: linear-gradient(to bottom, rgba(222,255,0,1) 0%,rgba(222,255,0,0.5) 60%,rgba(222,255,0,1) 100%);
-}
-
 /*** MEDIA QUERIES ***/
 @media only screen and (min-width: 50em) {
     .open-book {
@@ -193,11 +128,16 @@ img {
         position: relative;
     }
 
-    article {
-        height: 33em;
+    body {
+        background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(https://thumbs.dreamstime.com/b/red-table-cloth-background-seamless-pattern-vector-illustration-traditional-gingham-dining-fabric-texture-checkered-59977527.jpg); /* table cloth background, dark to not be too distracting */
+
     }
 
-    .open-book:before {
+    article {height: 33em;}
+
+    img {width: 8cm;} /* enlarge image when displayed on larger device */
+
+    .open-book:before { /* book cover, behind the pages */
         background-color: #663300;
         border-radius: 0.25em;
         bottom: -1em;
@@ -209,7 +149,7 @@ img {
         z-index: -1;
     }
 
-    .open-book:after {
+    .open-book:after { /* page separator in the middle */
         background: linear-gradient(to right, transparent 0%,rgba(0,0,0,0.2) 46%,rgba(0,0,0,0.5) 49%,rgba(0,0,0,0.6) 50%,rgba(0,0,0,0.5) 51%,rgba(0,0,0,0.2) 52%,transparent 100%);
         bottom: -1em;
         content: '';
@@ -221,15 +161,26 @@ img {
         z-index: 1;
     }
 
-    .open-book > * {
+    .open-book > * { /* for two sides of the page */
         column-count: 2;
         column-gap: 6em;
-        column-fill: auto;
+        column-fill: auto; /* fill left page first */
         position: relative;
         z-index: 1;
     }
 
-    /* Header/Footer */
+    .all_ingredients { /* separate ingredients into 2 colums to take less space*/
+        -moz-column-count: 2;
+        -moz-column-gap: 10px;
+        -webkit-column-count: 2;
+        -webkit-column-gap: 10px;
+        column-count: 2;
+        column-gap: 10px;
+    }
+
+    .open-book article > ul, .open-book article > ol {padding-left: 1em;}
+
+    /* top and bottom of book */
     .open-book header:before,
     .open-book header:after,
     .open-book footer:before,
@@ -242,89 +193,19 @@ img {
         z-index: -1;
         width: calc(50% + 2em);
     }
-
-    .open-book header:before,
-    .open-book footer:before,
-    .open-book footer:after {
-        border-top-left-radius: 0;
-    }
-
-    .open-book header:after,
-    .open-book footer:before,
-    .open-book footer:after {
-        border-top-right-radius: 0;
-    }
-
-    .open-book header:before,
-    .open-book header:after,
-    .open-book footer:after {
-        border-bottom-right-radius: 0;
-    }
-
-    .open-book header:before,
-    .open-book header:after,
-    .open-book footer:before {
-        border-bottom-left-radius: 0;
-    }
-
-    .open-book header:before,
-    .open-book header:after {
-        top: -2.65em;
-    }
-
-    .open-book header:before,
-    .open-book footer:before {
-        right: 50%;
-    }
-
-    .open-book header:before {
-        transform: rotate(-2deg);
-    }
-
-    .open-book header:after,
-    .open-book footer:after {
-        left: 50%;
-    }
-
-    .open-book header:after {
-        transform: rotate(2deg);
-    }
-
-    .open-book footer:before,
-    .open-book footer:after {
-        bottom: -2.65em;
-    }
-
-    .open-book footer:before {
-        transform: rotate(2deg);
-    }
-
-    .open-book footer:after {
-        transform: rotate(-2deg);
-    }
-
-    .open-book header > *:last-child,
-    .open-book footer > *:last-child {
-        text-align: right;
-    }
-
-    .open-book footer #page-numbers {
-        display: block;
-    }
-
-    /* Chapter Title */
-    .open-book .chapter-title {
-        font-size: 3em;
-    }
-
-    .open-book .chapter-title:before,
-    .open-book .chapter-title:after {
-        height: 0.125em;
-    }
-
-    .open-book article > ul,
-    .open-book article > ol {
-        padding-left: 1em;
-
-    }
+    /* changes to individual edges/corners */
+    .open-book header:before, .open-book footer:before, .open-book footer:after {border-top-left-radius: 0;}
+    .open-book header:after, .open-book footer:before, .open-book footer:after {border-top-right-radius: 0;}
+    .open-book header:before,.open-book header:after,.open-book footer:after {border-bottom-right-radius: 0;}
+    .open-book header:before, .open-book header:after, .open-book footer:before {border-bottom-left-radius: 0;}
+    .open-book header:before, .open-book header:after {top: -2.65em;}
+    .open-book header:before,.open-book footer:before {right: 50%;}
+    .open-book header:before {transform: rotate(-2deg);}
+    .open-book header:after,.open-book footer:after {left: 50%;}
+    .open-book header:after {transform: rotate(2deg);}
+    .open-book footer:before,.open-book footer:after {bottom: -2.65em;}
+    .open-book footer:before {transform: rotate(2deg);}
+    .open-book footer:after {transform: rotate(-2deg);}
+    .open-book header > *:last-child, .open-book footer > *:last-child {text-align: right;}
+    .open-book footer #page-numbers {display: block;}
 }

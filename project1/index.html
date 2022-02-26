@@ -6,49 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"> </script>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" type="image/jpg" href="https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/92-512.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="https://assets.materialup.com/uploads/d2feb47f-3d3c-4b05-8673-a2886e5f6aca/preview"/>  <!-- for favicon -->
     <title>Cookbook</title>
 </head>
-<body>
 
-    <div id="wrapper">
-        <section class="container">
-                <section class="open-book">
-                    <header>
-                        <h1>The Cookbook</h1>
-                        <h6>Alia Waleed</h6>
-                    </header>
-                    <p>
-                        <button type="button" id="back" class="button" onclick="goBack();"> <img id="buttonImg" src="https://cdn.iconscout.com/icon/free/png-256/home-1767389-1505253.png"> </button>
-                        <button type="button" id="another" class="button" onclick="anotherOption();"> <img id="buttonImg" src="https://cdn-icons-png.flaticon.com/512/3580/3580329.png"> </button>
-                    </p>
-                    <article id="article">
-                        <h2 id="finder">Find Me a Recipe</h2>
-                        
-                        <div id="input-box">
-                            <center><p id="web-instructions"> Add all ingredients, press display, and we'll get you the recipe!</p></center>
-                            <table>
-                                <tr>
-                                    <td id="enter"> Enter ingredients: </td>
-                                    <td><input type="text" id="inputtext" onkeypress="search(this)" onkeydown="return /[a-z]/i.test(event.key)" /></td>
-                                    <td>
-                                        <button type="button" id="add" onclick="addRecord();"> + </button>
-                                        <button type="button" id="display" onclick="printarray();">Display</button>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="input"></div>
-                        <ul class="list" id="list"> </ul>
-                    </article>
-                    <footer>
-                        <ol id="page-numbers">
-                            <li>1</li>
-                            <li>2</li>
-                        </ol>
-                    </footer>
-                </section>
-        </section>
-    </div>
+<body>
+    <section class="container"> <!-- full book -->
+            <section class="open-book"> <!-- open pages -->
+                <header> <!-- book header -->
+                    <h1>The Cookbook</h1>
+                    <h6>Alia Waleed</h6>
+                </header>
+                <p> <!-- section after header with buttons after recipe is displayed -->
+                    <button type="button" id="back" class="button" onclick="goBack();"> <img id="buttonImg" src="https://cdn.iconscout.com/icon/free/png-256/home-1767389-1505253.png"> </button>
+                    <button type="button" id="another" class="button" onclick="anotherOption();"> <img id="buttonImg" src="https://cdn-icons-png.flaticon.com/512/3580/3580329.png"> </button>
+                </p>
+                <article id="article"> <!-- actual text between header and footer -->
+                    <h2 id="finder">Find Me a Recipe</h2> <!-- title for page -->
+            
+                    <div id="input-box"> <!-- User instructions and input area -->
+                        <p id="web-instructions"> Add all ingredients, press display, and we'll get you the recipe!</p>
+                        <table>
+                            <tr>
+                                <td id="enter"> Enter ingredients: </td>
+                                <td><input type="text" id="inputtext" onkeypress="addIngredientOnEnter()" onkeydown="return /[a-z]/i.test(event.key)" /></td>
+                                <td>
+                                    <button type="button" class="button" id="add" onclick="addIngredient();"> + </button>
+                                    <button type="button" id="display" onclick="printarray();">Display</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <div id="input"></div> <!-- the ingredients list to be printed -->
+                    <ul class="list" id="list"> </ul> <!-- all of the recipe content -->
+                </article>
+                <footer>
+                    <ol id="page-numbers">
+                        <li>1</li>
+                        <li>2</li>
+                    </ol>
+                </footer>
+            </section>
+    </section>
 </body>
+
 </html>
