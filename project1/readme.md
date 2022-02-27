@@ -108,4 +108,5 @@ Example of recipe output:
 
 ### References
 [Recipe Box](https://eightportions.com/datasets/Recipes/) for the data set
-[Book Layout](https://codepen.io/erinesullivan/pen/gxdbzp)
+
+[Book Layout](https://codepen.io/erinesullivan/pen/gxdbzp) adapted and modified for the background
