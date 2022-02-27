@@ -4,9 +4,9 @@
 [Fine Me a Recipe](https://aliawaleed.github.io/connectionsLab/project1/index.html)
 
 ### Description
-This project presents baking and cooking recipes from a data set that I compiled with around 60 recipes. The goal of the website is to ease the process of cooking and making decisions on what to make for the baker, chef, or anyone who is about to make food. The welcome screen is simple and easy to navigate, with basic instructions on what to do or not to do, catering to people of all ages. The user is first asked about the ingredients that they would like to use or incorporate in their dish. This is followed by the display of full recipes on one screen, across 2 open book pages when viewed from a laptop, and around 2 screenshots worth if viewed on a phone or a smaller device. It presents a recipe that includes as many as possible from the ingredients that the user has input and gives them the option to look through other ones in case they do not like the recipe that they are currently on. The website solves 5 problems that users face when following recipes online:
+This project presents baking and cooking recipes from a data set that I compiled with around 60 recipes. The goal of the website is to ease the process of cooking and making decisions on what to make for the baker, chef, or anyone who is about to make food. The welcome screen is simple and easy to navigate, with basic instructions on what to do or not to do, catering to people of all ages. The user is first asked about the ingredients that they would like to use or incorporate in their dish. This is followed by the display of full recipes on one screen, across 2 open book pages when viewed from a laptop, and around 2 screenshots worth if viewed on a phone or a smaller device. It presents the best matching recipe that includes as many as possible ingredients from the user input and gives them the option to look through other ones in case they do not like the recipe that they are currently on. The website solves 5 problems that users face when following recipes, especially on websites that are currently available online:
 1. It eliminates the need for looking through a printed book 
-2. It makes it convenient for people to look at full recipes at once, without the need to scroll down to look at more instructions, since it's very likely that their hands could be dirty once they have started baking or cooking.
+2. It makes it convenient for people to look at full recipes at once, without the need to scroll down to look at more instructions (if their hands are dirty)
 3. It removes all unnecessary information that users tend to see when looking at a recipe
 4. It reduces food waste if the user decides to input ingredients that would go bad or expire
 5. It makes the decision-making process for what to make much faster
@@ -30,7 +30,6 @@ As my initial plan was to add a png of a book, I felt that it wouldn't work and 
 The hardest part, which I will discuss in detail in the challenges, was the following one, which was what to display and when. This is to get the user input from the welcome screen, check for errors, store the ingredients that they want to use, look over all of the recipes and all of the ingredients, find the best recipe that would match the most, and display this specific recipe on the screen. Not only that, but also added a shuffle button that finds any other recipe with the same level of matching and randomizes the one that would be displayed next. I kept going back and forth to make sure that I try not to miss out on any possible error.
 
 The very last thing I did was develop the mobile view and make sure that the users are not confused by displaying error messages, instructions if needed, alerts if only one recipe exists, and fixed an error in the shuffle button where the same recipe could be displayed more than one time in a row. 
-
 
 ### Challenges and Solutions
 1. The first challenge that I encountered was coming up with an idea. I looked through hundreds of datasets but couldn't choose a topic that I wanted to cover as I am a very indecisive person, this caused a huge delay in when I would actually start the implementation.
@@ -85,7 +84,6 @@ The very last thing I did was develop the mobile view and make sure that the use
       options[random].style.display = "block";
   }
 ```
-
 
 ### Lessons and Next Steps
  Learnings:
