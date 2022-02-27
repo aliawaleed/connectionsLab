@@ -1,7 +1,7 @@
 # Project 1 Documentation
 
 ### Title
-[The Digital Cookbook](https://aliawaleed.github.io/connectionsLab/project1/index.html)
+[Fine Me a Recipe](https://aliawaleed.github.io/connectionsLab/project1/index.html)
 
 ### Description
 This project presents baking and cooking recipes from a data set that I compiled with around 60 recipes. The goal of the website is to ease the process of cooking and making decisions on what to make for the baker, chef, or anyone who is about to make food. The welcome screen is simple and easy to navigate, with basic instructions on what to do or not to do, catering to people of all ages. The user is first asked about the ingredients that they would like to use or incorporate in their dish. This is followed by the display of full recipes on one screen, across 2 open book pages when viewed from a laptop, and around 2 screenshots worth if viewed on a phone or a smaller device. It presents a recipe that includes as many as possible from the ingredients that the user has input and gives them the option to look through other ones in case they do not like the recipe that they are currently on. The website solves 5 problems that users face when following recipes online:
