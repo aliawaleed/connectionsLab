@@ -37,13 +37,13 @@ The very last thing I did was develop the mobile view and make sure that the use
 2. Another challenge that I encountered was the formatting of the dataset as it was not formatted properly with no common names for the first element of each list, and so I created a new JSON file and copied the information that I needed in a readable format for the JavaScript file and made some modifications.
 3. Displaying the information on the screen and adding to the HTML file in a format that is easily understood and accessed whenever needed for the presentation of the recipes, understanding the code, and making changes in the CSS and JavaScript file. I need to make changes in the way some of the information was read as well, such as splitting the instructions from one long string to an ordered list of what to do. For the recipes overall, I found that the best way to loop through them was to store them into an array for easier access and iteration.
 4. The hardest challenge that took the longest time to solve was to compare the user input to the recipes' ingredients and find the best matches. To solve this problem:
-<li> I stored the user input into an array
-<li> I created an empty array for the recipe options that have the best match (the highest number of common ingredients)
-<li> I created a dictionary that has the recipes as the keys, with the number of matches as the values
-<li> I created a boolean array to check if user input exists in recipe (the reason I made a boolean array was to avoid repetition, such as eggs and egg yolks, that were seen as two separate items)
-<li> I made nested for loops that go over each ingredient from the user and each ingredient in each recipe and increase the count for the number of matches and change the boolean to 1 
-<li> I then added all of the values to their respective keys in the dictionary
-<li> I found the maximum value and all of the recipes that have the same value and pushed them to the options array to later be displayed
+    - I stored the user input into an array
+    - I created an empty array for the recipe options that have the best match (the highest number of common ingredients)
+    - I created a dictionary that has the recipes as the keys, with the number of matches as the values
+    - I created a boolean array to check if user input exists in recipe (the reason I made a boolean array was to avoid repetition, such as eggs and egg yolks, that were seen as two separate items)
+    - I made nested for loops that go over each ingredient from the user and each ingredient in each recipe and increase the count for the number of matches and change the boolean to 1 
+    - I then added all of the values to their respective keys in the dictionary
+    - I found the maximum value and all of the recipes that have the same value and pushed them to the options array to later be displayed
   
   ```
     let max = 0; 
