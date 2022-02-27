@@ -20,7 +20,8 @@ The first thing I did was come up with an idea that I would like to implement. I
 The next step was to find an API or dataset online that has a variety of options and details that I could parse and use. I was surprised to find that most of the APIs were very expensive and needed a membership. I searched a bit more until I came across a website called [Recipe Box](https://eightportions.com/datasets/Recipes/) that had a static dataset consisting of around 40,000 recipes and I decided to use it. Like the other datasets that I found, this one wasn't perfect either, the format wasn't ideal and it had the word "ADVERTISEMENT" written at the end of each list of ingredients. I created a new JSON file that includes a sample of all recipes, I formatted it in a way that could be easily used, by myself as well as others, did some minor changes in the text such as using "°" instead of the word "degree", and I found and added links for images for each recipe.
 
 The next thing I did was use Figma to create a wireframe of what I would like my website to look like. My goal was to make it user-friendly, simple, and easy for people of all ages, ranging from children that are cooking with their parents or friends to elders that have access to a laptop when baking or cooking, so I decided to create the website as a book to make it easy for navigation and understanding. The wireframe is presented in the image below:
-![](wireframe.png)
+
+<img src="wireframe.png" alt="drawing" width="700"/>
 
 The next step was to use the data set, create the HTML, CSS, and JavaScript files, and link them all together to ensure that the data could be parsed and displayed on the webpage properly. On load, the JavaScript file gathers all of the information from the JSON file, stores it into different arrays, sections, and tags, for easy access and screen display. This process took me a long time since it was the first time for me to work with data visualization, to decide on the tags that would best fit and separate all text blobs into individual lines, create ingredients lists, and split the instructions into numbered lists. Once the data was displayed on the website, I was good to start with the design implementation and decisions.
 
@@ -100,7 +101,9 @@ The very last thing I did was develop the mobile view and make sure that the use
   
 ### The Final Display
 The landing page:
-<img src="page.jpg" alt="drawing" width="300"/>
   
-Example of recipe outpuy:
-<img src="example.jpg" alt="drawing" width="300"/>
+<img src="page.jpg" alt="drawing" width="800"/>
+  
+Example of recipe output:
+  
+<img src="example.jpg" alt="drawing" width="800"/>
