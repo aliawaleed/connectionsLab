@@ -107,3 +107,7 @@ The landing page:
 Example of recipe output:
   
 <img src="example.jpg" alt="drawing" width="800"/>
+
+### References
+[Recipe Box](https://eightportions.com/datasets/Recipes/) for the data set
+[Book Layout](https://codepen.io/erinesullivan/pen/gxdbzp)
