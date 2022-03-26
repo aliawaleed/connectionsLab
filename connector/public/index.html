@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>connector</title>
+</head>
+<body>
+    <header class="header">
+        <img class="logo" src="https://s3.amazonaws.com/iconbros/icons/icon_pngs/000/002/051/original/connection.png?1632676716" alt="logo">
+        <h1> Connector!</h1>
+    </header>
+    <section class="main">
+        <section class="feed" id="feed">  <!-- full feed section -->
+            <ul class="posts" id="posts"></ul> <!-- list of posts -->
+        </section>
+        <!-- to create a new post -->
+        <section class="create" id="create">
+            <div class="create__container">
+                    <label for="username">Name:</label>
+                    <input type="text" id="username" name="username"><br><br>
+                    <label for="user_post">Post:</label>
+                    <textarea id="user_post" name="user_post" rows="4" cols="40" onkeypress="postOnEnter()"></textarea>
+                    <input type="submit" value="Submit" onclick="toPost()">
+            </div>
+        </section>
+    </section>
+
+    <!-- to add a new post -->
+    <section class="footer">
+        <button class="make_post">
+            <img class="post_icon" src="http://cdn.onlinewebfonts.com/svg/img_262791.png" alt="post icon" onclick="createPost()";>
+        </button>
+    </section>
+</body>
+</html>
