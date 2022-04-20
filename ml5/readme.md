@@ -35,11 +35,12 @@ for each of the buttons to associate each image with a specific object/name in m
 On load, I fetch this data and store it in an array to later be accessed and printed on the screen. Initially, I only printed the information on one side and had the video and buttons on the other side, to ensure that the functionalities are working, and then I moved to the design where I decided that I would have it look like an ID with the video in the location of the photo and the user data on the side.
 
 The wireframe could be seen below:
-![](/images/wireframe.jpg)
+
+![](images/wireframe.jpg)
 
 In the gotResults() function, which occurs after the training is done and the user is identified in front of the camera, the printing of information occurs. I set the confidence level to be > 0.98 as this yielded to the most accurate results after some trial and error and if that's the case, I set a label to the name of that person to later be accessed for the printing of information. I then iterated over the array consisting of the information in the JSON file and when I found a name that is equal to that of the label, I printed the information of that person on the screen. I then set boolean variables of "canEnter" and "cantEnter" to true or false based on age, if a person is > 21 years old I set canEnter to true and cantEnter to false, and vice versa. And if its NA, set both to false. This data is later used in the draw function where a green overlay is shown if the user is > 21 years old, red if < 21 years old, and clear if NA.
 
 Lastly, I added and commented out a few lines of code to be used for [saving](https://thecodingtrain.com/learning/ml5/4.1-save-load-model.html) the data but did not implement it as I wanted to finish everything on the spot as I kept my friends waiting. 
 
 Below is the final display of the screen:
-![](/images/finalDisplay.jpg)
+![](images/finalDisplay.jpg)
