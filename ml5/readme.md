@@ -11,6 +11,30 @@ The project uses ml5 to train the data and so the first thing I did was read thr
 
 Since I didn't want to apply the code blindly and wanted to understand more of the concepts and theory, I watched another video that Dan Schiffman had to explain the process behind [transfer learning](https://thecodingtrain.com/learning/ml5/2.1-transfer-learning.html). I learned that MobileNet is the pretrained model used that's trained on a database of millions of images called ImageNet. When an image/object is detected, MobileNet returns a label that identifies the object and a confidence/probability score of what the object could be. To be able to train my own model, I needed to understand how the neural network works to process data and move to the following layer until features are identified. We then convert the Feature Extractor to a classifier to train with my own images/data.
 
+Next, I started the implementation where I followed along with the [documentation](https://learn.ml5js.org/#/reference/feature-extractor) as well as the [video](https://thecodingtrain.com/learning/ml5/3.1-feature-extractor-classification.html) to train an ML image identifier through training and using my own data. First, I initialized the webcam, canvas, and video in the setup() and draw() functions to make sure that they are running smoothly. I then added a couple of buttons for the classification of data and a button to train, mainly using:
+
+```
+classifier.train(whileTraining); // to train the data and console.log while training 
+```
+and
+```
+classifier.addImage('name');
+```
+for each of the buttons to associate each image with a specific object/name in my case. After loading the necessary files and making sure that it works, I started implementing my idea to identify people and load their data. To do that, I created my own JSON file/data set where I stored the information of each person, consisting of their name, age, and image. An example could be seen below:
+
+```
+{
+    "name": "Alia",
+    "age": "21",
+    "image": "https://scontent.ffjr1-6.fna.fbcdn.net/v/t1.6435-9/100549657_878340159334094_2486094716383264768_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=AcSaY3NXflAAX9uuiYP&_nc_ht=scontent.ffjr1-6.fna&oh=00_AT9ITPShLdV4zJ5kcKJ0GxTAD2KSPTzCHdz7VBy7QWWCMQ&oe=62839580"
+},
+```
+On load, I fetch this data and store it in an array to later be accessed and printed on the screen. Initially, I only printed the information on one side and had the video and buttons on the other side, to ensure that the functionalities are working, and then I moved to the design where I decided that I would have it look like an ID with the video in the location of the photo and the user data on the side.
+
+The wireframe could be seen below:
+![](/images/wireframe.jpg)
+
+In the gotResults() function, which occurs after the training is done and the user is identified in front of the camera, the printing of information occurs. 
 
 ## Evaluation
 
