@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> 21+ Entry</title>
+    <!-- Loading the necessary files -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <script src="sketch.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="top"> 
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Coat_of_arms_of_Egypt_%28Official%29.svg/1200px-Coat_of_arms_of_Egypt_%28Official%29.svg.png" alt="eagle" id="eagle">
+            <p class="identity"> Identity Card </p>
+        </div>        
+        <div class="p5" id="p5"></div>
+        <div class="buttons">
+            <!-- Individual buttons to train on people -->
+            <button id="alia"> Alia</button>
+            <button id="ziad"> Ziad </button>
+            <button id="omar"> Omar </button>
+            <button id="farah"> Farah </button>
+            <button id="hagar"> Hagar </button>
+            <button id="beethoven"> Beethoven </button>
+            <button id="ingy"> Ingy </button>
+        </div>
+        <div class="buttons">
+            <button id="train"> Train </button>
+            <!-- To save the data and load later -->
+            <!-- <button id="save"> Save </button>  -->
+        </div>
+    </div>
+    <div class="ID">
+        <img class="card" src="https://media.istockphoto.com/photos/gray-abstract-minimal-motion-backgrounds-loopable-elements-4k-picture-id1174989482?k=20&m=1174989482&s=612x612&w=0&h=u8DlBa3XuF5J1vuCTASf6EY_gMxcRmt94OmUVq27A0M=" alt="">
+        <div class="info" id="info">
+            <p id="name"> Name: </p>
+            <p id="age"> Age: </p>
+            <p id="profession"> Profession: </p>
+            <img src="https://st2.depositphotos.com/1502311/12020/v/600/depositphotos_120206860-stock-illustration-profile-picture-vector.jpg" alt="person" id="img">
+            <img id="chip" src="chip.png" alt="">
+        </div>
+    </div>
+</body>
+
+</html>

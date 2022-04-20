@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=Akshar&display=swap');
+
+body {
+    margin: 0;
+    background-color: rgb(122, 23, 23);
+}
+/* left side container */
+.container{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+/* for the buttons */
+.buttons{
+    text-align: center;
+}
+
+button{
+    font-family: ui-monospace;
+    background-color: rgb(122, 23, 23);
+    border: none;
+    color: white;
+    padding: 5px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border-radius: 3px;
+}
+
+/* the save and train buttons */
+#train, #save{
+    margin-top: 3%;
+    background-color: #000000;
+    padding: 10px 24px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    display: inline-block;
+    font-size: 22px;
+}
+
+/* the card in the background */
+.card{
+    background-color: rgb(255, 255, 255);
+    width: 86vw;
+    height: 90vh;
+    left: 7%;
+    top: 5%;
+    position: absolute;
+    z-index: -1;
+    border-radius: 20px;
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+/* the text on the card */
+p {
+    color: black;
+    font-size: 25px;
+    font-family: "Akshar";
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+/* the info on the left side of the screen */
+.info{
+    left: 50vw;
+    top: 20vh;
+    position: absolute;
+}
+
+/* the images of the people */
+#img{
+    height: 18vw;
+    border: 2px solid black;
+}
+
+/* eagle on the top left corner */
+#eagle{
+    width: 3vw;
+    margin-bottom: 2%;
+    float: left;
+}
+
+
+/*  title of identity card*/
+.identity{
+    font-size: 44px;
+    padding-top: 0.5vw;
+    padding-left: 4vw;
+    margin: 0;
+}
+
+/* chip on the left */
+#chip{
+    width: 10vw;
+    left: 30vw;
+    position: absolute;
+}
